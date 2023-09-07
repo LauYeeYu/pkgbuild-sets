@@ -31,12 +31,12 @@ md5sums=('SKIP')
 # a description of each element in the source array.
 
 pkgver() {
-	cd "$srcdir/ravel"
+	cd "$srcdir/${pkgname%-git}"
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-	cmake -B build -S "$srcdir/ravel" -DCMAKE_INSTALL_PREFIX=/usr
+	cmake -B build -S "$srcdir/${pkgname%-git}" -DCMAKE_INSTALL_PREFIX=/usr
 	cmake --build build
 }
 
