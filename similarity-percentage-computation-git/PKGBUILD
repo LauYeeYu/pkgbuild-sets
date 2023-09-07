@@ -1,0 +1,48 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# The following guidelines are specific to BZR, GIT, HG and SVN packages.
+# Other VCS sources are not natively supported by makepkg yet.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=similarity-percentage-computation-git # '-bzr', '-git', '-hg' or '-svn'
+pkgver=r4.fccd660
+pkgrel=1
+pkgdesc="A similarity percentage tester in C, C++, Java, Pascal, Modula-2, Miranda, Lisp, and 8086 assembler code"
+arch=('x86_64')
+url="https://github.com/ACMClassOJ/Similarity-Percentage-Computation"
+license=('BSD')
+groups=()
+depends=()
+makedepends=('git' 'make' 'flex' 'coreutils')
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
+replaces=()
+backup=()
+options=()
+install=
+source=('git+https://github.com/ACMClassOJ/Similarity-Percentage-Computation')
+noextract=()
+md5sums=('SKIP')
+
+# set -o xtrace
+# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
+# a description of each element in the source array.
+
+pkgver() {
+	cd "$srcdir/Similarity-Percentage-Computation"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+	cd "$srcdir/Similarity-Percentage-Computation"
+	make binaries -j1
+}
+
+package() {
+	cd "$srcdir/Similarity-Percentage-Computation"
+	make DIR="${pkgdir}/usr" COPY="install -D" install
+	install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/${pkgname%-git}/LICENSE"
+}

@@ -1,0 +1,4 @@
+*.tar.zst
+src/
+Similarity-Percentage-Computation/
+pkg/
