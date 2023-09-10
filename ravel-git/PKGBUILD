@@ -1,13 +1,5 @@
-# This is an example PKGBUILD file. Use this as a start to creating your own,
-# and remove these comments. For more information, see 'man PKGBUILD'.
-# NOTE: Please fill out the license field for your package! If it is unknown,
-# then please put 'unknown'.
-
-# The following guidelines are specific to BZR, GIT, HG and SVN packages.
-# Other VCS sources are not natively supported by makepkg yet.
-
-# Maintainer: Your Name <youremail@domain.com>
-pkgname=ravel-git # '-bzr', '-git', '-hg' or '-svn'
+# Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
+pkgname=ravel-git
 pkgver=r80.02303f4
 pkgrel=1
 pkgdesc="A RISCV simulator"
@@ -15,7 +7,7 @@ arch=('x86_64')
 url="https://github.com/LauYeeYu/ravel"
 groups=()
 depends=()
-makedepends=('git' 'cmake') # 'bzr', 'git', 'mercurial' or 'subversion'
+makedepends=('git' 'cmake')
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 replaces=()
@@ -24,23 +16,19 @@ options=()
 install=
 source=('git+https://github.com/LauYeeYu/ravel')
 noextract=()
-md5sums=('SKIP')
-
-# set -o xtrace
-# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
-# a description of each element in the source array.
+sha256sums=('SKIP')
 
 pkgver() {
-	cd "$srcdir/ravel"
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "$srcdir/ravel"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-	cmake -B build -S "$srcdir/ravel" -DCMAKE_INSTALL_PREFIX=/usr
-	cmake --build build
+    cmake -B build -S "$srcdir/ravel" -DCMAKE_INSTALL_PREFIX=/usr
+    cmake --build build
 }
 
 package() {
-	DESTDIR="$pkgdir" cmake --install build
-	install -Dm644 "$srcdir/ravel/completions/ravel.zsh" "$pkgdir"/usr/share/zsh/site-functions/_ravel
+    DESTDIR="$pkgdir" cmake --install build
+    install -Dm644 "$srcdir/ravel/completions/ravel.zsh" "$pkgdir"/usr/share/zsh/site-functions/_ravel
 }

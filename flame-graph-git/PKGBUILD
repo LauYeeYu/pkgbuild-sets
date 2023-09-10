@@ -1,4 +1,4 @@
-# Maintainer: LauYeeYu <liuyiyu2003@126.com>
+# Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=flame-graph-git
 pkgver=r364.d9fcc27
 pkgrel=1
@@ -20,28 +20,24 @@ noextract=()
 sha256sums=('SKIP'
             '852a9b775a49b52e3323a44bdb72bb42ca2dfb12b785cf7097fc02a71428c2ec')
 
-# set -o xtrace
-# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
-# a description of each element in the source array.
-
 pkgver() {
-	cd "$srcdir/FlameGraph"
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "$srcdir/FlameGraph"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-	cd "$srcdir"
-	install -Dm755 flame-graph "${pkgdir}/usr/bin/flame-graph"
-	cd "$srcdir/FlameGraph"
-	install -Dm755 jmaps "${pkgdir}/opt/FlameGraph/jmaps"
+    cd "$srcdir"
+    install -Dm755 flame-graph "${pkgdir}/usr/bin/flame-graph"
+    cd "$srcdir/FlameGraph"
+    install -Dm755 jmaps "${pkgdir}/opt/FlameGraph/jmaps"
 
-	for script in *.{awk,pl,py}; do
-		install -Dm755 "${script}" "${pkgdir}/opt/FlameGraph/${script}"
-	done
-	for pic in demos/*.{svg,html}; do
-		install -Dm644 "${pic}" "${pkgdir}/opt/FlameGraph/${pic}"
-	done
-	for example in example-*; do
-		install -Dm644 "${pic}" "${pkgdir}/opt/FlameGraph/examples/${example}"
-	done
+    for script in *.{awk,pl,py}; do
+        install -Dm755 "${script}" "${pkgdir}/opt/FlameGraph/${script}"
+    done
+    for pic in demos/*.{svg,html}; do
+        install -Dm644 "${pic}" "${pkgdir}/opt/FlameGraph/${pic}"
+    done
+    for example in example-*; do
+        install -Dm644 "${pic}" "${pkgdir}/opt/FlameGraph/examples/${example}"
+    done
 }
