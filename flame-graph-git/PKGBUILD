@@ -18,7 +18,7 @@ install=
 source=('git+https://github.com/brendangregg/FlameGraph' 'flame-graph')
 noextract=()
 sha256sums=('SKIP'
-            '852a9b775a49b52e3323a44bdb72bb42ca2dfb12b785cf7097fc02a71428c2ec')
+            'dc86d7a44518a269b32c409a22d8cad14c4e48139ee91d23fcc1d8b37a2abcd0')
 
 pkgver() {
     cd "$srcdir/FlameGraph"
