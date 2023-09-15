@@ -15,10 +15,11 @@ replaces=()
 backup=()
 options=()
 install=
-source=('git+https://github.com/brendangregg/FlameGraph' 'bin_flame-graph')
+source=('git+https://github.com/brendangregg/FlameGraph' 'bin_flame-graph' 'man_flame-graph.1')
 noextract=()
 sha256sums=('SKIP'
-            'dc86d7a44518a269b32c409a22d8cad14c4e48139ee91d23fcc1d8b37a2abcd0')
+            '5548d47929ca1ad0193820e337008df731b1cf722391524a6d77776d20c8606f'
+            '8dfdf028cf38d5d9fce25bf71fb1d92f8f8606c9ddb711f01bd1600a7bfcf4b6')
 
 pkgver() {
     cd "$srcdir/FlameGraph"
@@ -28,6 +29,7 @@ pkgver() {
 package() {
     cd "$srcdir"
     install -Dm755 bin_flame-graph "${pkgdir}/usr/bin/flame-graph"
+    install -Dm644 man_flame-graph.1 "${pkgdir}/usr/share/man/man1/flame-graph.1"
     cd "$srcdir/FlameGraph"
     install -Dm755 jmaps "${pkgdir}/opt/FlameGraph/jmaps"
 
