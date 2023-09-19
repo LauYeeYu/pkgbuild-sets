@@ -32,5 +32,5 @@ build() {
 package() {
     cd "$srcdir/Similarity-Percentage-Computation"
     make DIR="${pkgdir}/usr" COPY="install -D" install
-    install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/${pkgname%-git}/LICENSE.txt"
+    install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
 }
