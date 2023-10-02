@@ -37,10 +37,10 @@ EOF
 fi
 
 print_warning() {
-    echo -e "\033[33m$1\033[0m" >&2
+    echo -e "\033[33mWarning: $1\033[0m" >&2
 }
 print_error() {
-    echo -e "\033[31m$1\033[0m" >&2
+    echo -e "\033[31mError: $1\033[0m" >&2
 }
 
 # Warning about the perf.data and perf.svg
