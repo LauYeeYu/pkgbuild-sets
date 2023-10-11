@@ -1,6 +1,6 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=ravel-git
-pkgver=r80.02303f4
+pkgver=r80.74a2f9f
 pkgrel=1
 pkgdesc="A RISCV simulator"
 arch=('x86_64')
