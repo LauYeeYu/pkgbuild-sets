@@ -1,6 +1,6 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=similarity-percentage-computation-git
-pkgver=r4.fccd660
+pkgver=r8.417cf4a
 pkgrel=1
 pkgdesc="A similarity percentage tester in C, C++, Java, Pascal, Modula-2, Miranda, Lisp, and 8086 assembler code"
 arch=('x86_64')
@@ -31,6 +31,6 @@ build() {
 
 package() {
     cd "$srcdir/Similarity-Percentage-Computation"
-    make DIR="${pkgdir}/usr" COPY="install -D" install
+    make DIR="${pkgdir}/usr" install_all
     install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
 }
