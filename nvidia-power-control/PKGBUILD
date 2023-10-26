@@ -1,0 +1,21 @@
+# Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
+pkgname=nvidia-power-control
+pkgver=2023.10.26
+pkgrel=1
+pkgdesc="Scripts to control the power of NVIDIA GPU"
+arch=('any')
+url=""
+license=()
+groups=()
+depends=('bash' 'nvidia-utils')
+makedepends=('coreutils')
+source=('bin_nvidia-on' 'bin_nvidia-off')
+noextract=()
+sha256sums=('cca3a203ee9bf5f7c43723e6019370bfc231a6bdc4eb701fa9bc9d52847f6edd'
+            '549e4704717ccd9dfe0470969579b203e3771b17648b262aed77bfb7f30827cc')
+
+package() {
+    cd "$srcdir"
+    install -Dm755 bin_nvidia-on "${pkgdir}/usr/bin/nvidia-on"
+    install -Dm755 bin_nvidia-off "${pkgdir}/usr/bin/nvidia-off"
+}
