@@ -1,6 +1,6 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=nvidia-power-control
-pkgver=2023.10.26
+pkgver=2023.11.01
 pkgrel=1
 pkgdesc="Scripts to control the power of NVIDIA GPU"
 arch=('any')
@@ -11,8 +11,8 @@ depends=('bash' 'nvidia-utils')
 makedepends=('coreutils')
 source=('bin_nvidia-on' 'bin_nvidia-off')
 noextract=()
-sha256sums=('cca3a203ee9bf5f7c43723e6019370bfc231a6bdc4eb701fa9bc9d52847f6edd'
-            '549e4704717ccd9dfe0470969579b203e3771b17648b262aed77bfb7f30827cc')
+sha256sums=('5b314b9331f6fee298edba2f0dbbc74d94fab775fdd2373465c8545426a77d9b'
+            '3e3e97ffde40012e41428c35a3c71592c16c5663dc5dfbf69d18589071e7919a')
 
 package() {
     cd "$srcdir"

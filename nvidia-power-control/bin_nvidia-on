@@ -1,2 +1,18 @@
 #!/bin/bash
-sudo nvidia-smi drain -p 0000:01:00.0 -m 0
+
+set -e
+
+run_as_root() {
+  if (( EUID != 0 )); then
+    if sudo -v &>/dev/null && sudo -l &>/dev/null; then
+      sudo "$@"
+    else
+      echo "Fail to escalate to root" >&2
+      exit 1
+    fi
+  else
+    "$@"
+  fi
+}
+
+run_as_root nvidia-smi drain -p 0000:01:00.0 -m 0
