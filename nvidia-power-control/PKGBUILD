@@ -1,13 +1,14 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=nvidia-power-control
 pkgver=2023.11.01
-pkgrel=1
+pkgrel=2
 pkgdesc="Scripts to control the power of NVIDIA GPU"
 arch=('any')
 url=""
 license=()
 groups=()
 depends=('bash' 'nvidia-utils')
+optdepends=('sudo: for privilege elevation')
 makedepends=('coreutils')
 source=('bin_nvidia-on' 'bin_nvidia-off')
 noextract=()
