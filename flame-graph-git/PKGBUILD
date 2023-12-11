@@ -1,7 +1,7 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=flame-graph-git
-pkgver=r364.d9fcc27
-pkgrel=2
+pkgver=r390.cd9ee4c
+pkgrel=1
 pkgdesc="A svg generator that allows you have a vivid overview of the calling stack"
 arch=('any')
 url="http://www.brendangregg.com/flamegraphs.html"
@@ -15,21 +15,9 @@ replaces=()
 backup=()
 options=()
 install=
-source=('git+https://github.com/brendangregg/FlameGraph'
-        'bin_flame-graph'
-        'bin_flame-graph-all'
-        'man_flame-graph.1'
-        'man_flame-graph-all.1'
-        'bash_completion_flame-graph'
-        'zsh_completion_flame-graph')
+source=('git+https://github.com/brendangregg/FlameGraph')
 noextract=()
-sha256sums=('SKIP'
-            'e6f9d5110e0e580c80f12b70877fc5e19504638d3c8d2438017cdf62f4e42751'
-            '8e0957033d70733112797d9fa2e7374139bfe03bc488d78c80f07bfc4ea0cb06'
-            '8dfdf028cf38d5d9fce25bf71fb1d92f8f8606c9ddb711f01bd1600a7bfcf4b6'
-            '1cbbfe1f30a8cd9683aade24275fab81b474562b0eb146496d4890a460b244d7'
-            '80c8591c81319add96743b30db15a79d15846097428629ce00a2d5d816fe10a6'
-            'bcb2dd20897dacc58b449ddf2773169982df86a372189214f6b383f7876c07ae')
+sha256sums=('SKIP')
 
 pkgver() {
     cd "$srcdir/FlameGraph"
@@ -37,14 +25,6 @@ pkgver() {
 }
 
 package() {
-    cd "$srcdir"
-    install -Dm755 bin_flame-graph "${pkgdir}/usr/bin/flame-graph"
-    install -Dm755 bin_flame-graph-all "${pkgdir}/usr/bin/flame-graph-all"
-    install -Dm644 man_flame-graph.1 "${pkgdir}/usr/share/man/man1/flame-graph.1"
-    install -Dm644 man_flame-graph-all.1 "${pkgdir}/usr/share/man/man1/flame-graph-all.1"
-    install -Dm644 bash_completion_flame-graph "${pkgdir}/usr/share/bash-completion/completions/flame-graph"
-    install -Dm644 zsh_completion_flame-graph "${pkgdir}/usr/share/zsh/site-functions/_flame-graph"
-
     cd "$srcdir/FlameGraph"
     install -Dm755 jmaps "${pkgdir}/opt/FlameGraph/jmaps"
 
