@@ -1,6 +1,6 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=lau-scripts-git
-pkgver=r7.c52894a
+pkgver=r10.a271abb
 pkgrel=1
 pkgdesc="Several scripts to improve efficiency and security"
 arch=('x86_64' 'aarch64' 'riscv64')
