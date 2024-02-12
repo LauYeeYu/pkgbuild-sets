@@ -1,11 +1,11 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=antlr4-all-git
-pkgver=r306.a1d2f1b1
+pkgver=r310.67e1e4ba
 pkgrel=1
 pkgdesc="Parser generator for reading, processing, executing, or translating structured text or binary files"
 arch=(any)
 url="https://www.antlr.org/"
-license=('BSD')
+license=('BSD-3-Clause')
 groups=()
 depends=('bash' 'java-environment>=6')
 makedepends=('git')

@@ -1,11 +1,11 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=flame-graph-git
 pkgver=r390.cd9ee4c
-pkgrel=1
+pkgrel=2
 pkgdesc="A svg generator that allows you have a vivid overview of the calling stack"
 arch=('any')
 url="http://www.brendangregg.com/flamegraphs.html"
-license=('CDDL')
+license=('CDDL-1.0')
 groups=()
 depends=('perf' 'bash' 'gawk' 'perl' 'python')
 makedepends=('git' 'coreutils')
