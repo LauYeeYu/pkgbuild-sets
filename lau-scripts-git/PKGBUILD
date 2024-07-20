@@ -1,6 +1,6 @@
 # Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
 pkgname=lau-scripts-git
-pkgver=r19.3d4a796
+pkgver=r20.4ec50d0
 pkgrel=1
 pkgdesc="Several scripts to improve efficiency and security"
 arch=('x86_64' 'aarch64' 'riscv64')
@@ -36,6 +36,7 @@ pkgver() {
 
 build() {
     cd "$srcdir/Scripts"
+    make clean
     make all
 }
 
