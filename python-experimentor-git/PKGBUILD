@@ -1,0 +1,36 @@
+# Maintainer: Lau Yee-Yu <liuyiyu2003@126.com>
+pkgname=python-experimentor
+pkgver=r35.2dd4a17
+pkgrel=1
+pkgdesc="a Python package for creating and running experiments"
+arch=('x86_64' 'aarch64' 'riscv64')
+url="https://github.com/LauYeeYu/Experimentor"
+license=('MIT')
+groups=()
+depends=('python' 'python-tqdm')
+makedepends=('python-build' 'python-installer' 'python-wheel')
+optdepends=()
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
+replaces=()
+backup=()
+options=()
+install=
+source=('git+https://github.com/LauYeeYu/Experimentor')
+noextract=()
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/Experimentor"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "$srcdir/Experimentor"
+    python -m build --wheel --no-isolation
+}
+
+package() {
+    cd "$srcdir/Experimentor"
+    python -m installer --destdir="$pkgdir" dist/*.whl
+}
